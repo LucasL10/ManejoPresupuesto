@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TiposCuentas>
+@{
+    ViewData["Title"] = "Tipos Cuentas";
+}
+<h1>Tipos de Cuentas</h1>
+<h5>
+    El tipo de cuenta se refiera a como podemos agrupar las cuentas
+    Ej: Prestamos, Tarjetas de Credito, etc.
+</h5>
+<a asp-action="Crear" class="btn btn-primary mb-3">Crear Nuevo </a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acciones</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tiposCuenta in Model)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-primary" asp-action="Editar" asp-route-id="@tiposCuenta.IdTipoCuenta">Editar</a>
+                    <a class="btn btn-danger" asp-action="Borrar" asp-route-id="@tiposCuenta.IdTipoCuenta">Borrar</a>
+                </td>
+                <td>
+                    @tiposCuenta.Nombre
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>

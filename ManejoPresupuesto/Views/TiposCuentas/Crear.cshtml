@@ -1,0 +1,54 @@
+﻿@model TiposCuentas
+@{
+    ViewData["Title"] = "Crear Tipo Cuenta";
+}
+<h1>Crear Tipo de Cuenta</h1>
+<h5>El tipo de cuenta se refiera a como podemos agrupar las cuentas
+    Ej: Prestamos, Tarjetas de Credito, etc.
+</h5>
+<div asp-validation-summary="ModelOnly" class="text-danger">
+    @*Pueden ser:
+    ModelOnly= errores generales de todo el modelo, desventaja acoplada al modelo en cuestion por lo que no te permite reutilizar mucho codigo
+    All= errores de campo, especifico por ej= NOMBRE errores*@
+
+</div>
+<form asp-controller="TiposCuentas" asp-action="Crear">
+    <div class="mb-3">
+        <label asp-for= "Nombre" class="form-label"></label>
+        <input type="text" asp-for="Nombre" class="form-control" />
+       @* Sincronizamos el valor del campo nombre enviado en la TipoCuenta.Model y lo asignamos en esta linea para devolverla por pantalla
+        >>input type="text" asp-for="Nombre"<<
+        *@
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+        
+    </div>
+   @* <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control"/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Edad" class="form-label"></label>
+        <input asp-for="Edad" class="form-control" />
+        <span asp-validation-for="Edad" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="URL" class="form-label"></label>
+        <input asp-for="URL" class="form-control" />
+        <span asp-validation-for="URL" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TarjetaDeCredito" class="form-label"></label>
+        <input asp-for="TarjetaDeCredito" class="form-control" />
+        <span asp-validation-for="TarjetaDeCredito" class="text-danger"></span>
+    </div>*@
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+</form>
+
+
+@section Scripts{
+    <partial name= "_ValidationScriptsPartial"/>
+}
+
+
